@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        "use strict";
+
+        let a=34;
+        console.log(a);
+
+        let obj={
+            r:34,
+            m:64,
+            func: function myfunc(number){
+                console.log("using myfunc");
+            }
+        }
+
+        document.addEventListener("click",function click(){
+            console.log("hi");
+           // alert("hello");
+           let conf= confirm("are you sure?");
+           console.log(conf);
+        })
+
+        let mobj={
+            a:this,
+            myfunc: function(number){
+            console.log("the number is:" + this);
+        }
+        }
+       
+
+        mboj.myfunc();
+        console.log(mboj.a);
+        setTimeout(()=>{
+            console.log("yeyeye")
+        },3000);
+        console.log("mai neeche wali script hoon")
+
+
+
+    </script>
+</head>
+<body>
+    I am leaning js.
+
+    <h1>
+        Click Me!
+    </h1>
+</body>
+</html>
