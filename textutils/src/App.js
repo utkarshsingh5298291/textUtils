@@ -1,16 +1,16 @@
 
 import './App.css';
-// import  About from './components/About';
+import  About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import React,{ useState } from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
   
-// } from "react-router-dom";
+} from "react-router-dom";
 
 function App() {
 
@@ -50,26 +50,24 @@ function App() {
   return (
    <>
    {/*Comenting out everything related to router as I needed to host the react app o  github it does not support router*/}
-   {/*<Router> */}
+   <Router>
   
         <Navbar title="Textutils" mode={mode} toggleMode={toggleMode} aboutText="About Text Utils"></Navbar>
         <Alert alert={alert}/>
         <div className="container my-3">
-        {/* <Routes>*/}
+        <Routes>
 
-          {/*  <Route path="/about" element={<About/>}>*/}
-              
-           {/* </Route>
+           <Route path="/about" element={<About  mode={mode}></About>}>
+           </Route>
 
-              <Route path="/" element={ <TextForm showAlert={showAlert} heading="Enter the details" mode={mode}></TextForm>}>
-             
-          </Route>
+           <Route path="/" element={ <TextForm showAlert={showAlert} heading="Enter the details" mode={mode}></TextForm>}>
+           </Route>
 
-        </Routes>*/}
-         <TextForm showAlert={showAlert} heading="Enter the details" mode={mode}></TextForm>
+        </Routes>
+       
           
         </div>
-   {/*</Router>*/}
+  </Router>
 
    </>
      

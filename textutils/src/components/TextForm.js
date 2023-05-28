@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 
 export default function TextForm(props) {
 
+
     const handleUpClick=()=>{
         console.log("Uppercase was clicked" + text);
         let newText=text.toUpperCase();
@@ -58,16 +59,16 @@ export default function TextForm(props) {
                     <textarea type="text" className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'#071330':'white',color:props.mode==='dark'?'white':'black' }} id="myBox" rows="8"/>
                     <div id="text" className="form-text"></div>
                 </div>           
-            <button type="submit" className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
-            <button type="submit" className="btn btn-primary mx-2" onClick={handleDownClick}>Convert to LowerCase</button>
-            <button type="submit" className="btn btn-primary mx-2" onClick={handleClearText}>Clear Text</button>
-            <button type="submit" className="btn btn-primary mx-2" onClick={speak}>Read the text</button>
-            <button type="submit" className="btn btn-primary mx-2" onClick={FirstLetterCaps}>Replace 1st letter</button>
+            <button disabled={text.length===0} type="submit" className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
+            <button disabled={text.length===0} type="submit" className="btn btn-primary mx-2" onClick={handleDownClick}>Convert to LowerCase</button>
+            <button disabled={text.length===0} type="submit" className="btn btn-primary mx-2" onClick={handleClearText}>Clear Text</button>
+            <button disabled={text.length===0} type="submit" className="btn btn-primary mx-2" onClick={speak}>Read the text</button>
+            <button disabled={text.length===0}  type="submit" className="btn btn-primary mx-2" onClick={FirstLetterCaps}>Replace 1st letter</button>
 
             <div className="container my-3">
                 <h2>Your text summary</h2>
-                <p>{text.split(" ").length-1} words,{text.length} characters</p>
-                <p>{0.008*text.split(" ").length} Minutes to read a word</p>
+                <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words,{text.length} characters</p>
+                <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).lengthcd } Minutes to read a word</p>
                 <h2>Preview</h2>
                 <p>{text.length>0?text:"Please enter something to Preview"}</p>
             </div>
